@@ -19,6 +19,8 @@ namespace FreshFishMobile
 
             MessagingCenter.Send(this, "hello");
 
+            int i;
+
         }
     }
 }
