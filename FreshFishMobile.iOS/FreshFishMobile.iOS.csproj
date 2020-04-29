@@ -129,8 +129,11 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\FreshFishMobile\FreshFishMobile.csproj">
-      <Project>{40FD235A-3DE9-4474-8D04-9611FFE689AA}</Project>
+      <Project>{36AD170C-D554-4263-A433-390E0518A981}</Project>
       <Name>FreshFishMobile</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_fish.png" />
   </ItemGroup>
 </Project>
