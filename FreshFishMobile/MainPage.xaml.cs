@@ -16,6 +16,7 @@ namespace FreshFishMobile
         public MainPage()
         {
             InitializeComponent();
+
         }
     }
 }
