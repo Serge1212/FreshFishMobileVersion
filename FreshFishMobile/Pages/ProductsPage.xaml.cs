@@ -29,9 +29,25 @@ namespace FreshFishMobile.Pages
             }
             productsListView.ItemsSource = ProductsCollection;
         }
-        private void productsListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        private async void productsListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
+            Products selectedProduct = e.SelectedItem as Products;
+            await Navigation.PushAsync(new SpecificProductPage(selectedProduct));
+        }
 
+        private async void ToolbarItem_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new SpecificProductPage(null));
+        }
+
+        private void ToolbarItem_Clicked_1(object sender, EventArgs e)
+        {
+            if(productsSearchBar.IsVisible == false)
+            productsSearchBar.IsVisible = true;
+            else
+            {
+                productsSearchBar.IsVisible = false;
+            }
         }
     }
 }

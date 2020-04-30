@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FreshFishMobile.Helpers;
+using FreshFishMobile.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,9 +14,42 @@ namespace FreshFishMobile.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SpecificProductPage : ContentPage
     {
-        public SpecificProductPage()
+        ProductsHelper helper = new ProductsHelper();
+        bool edited = true;
+        public Products Product { get; set; }
+        public SpecificProductPage(Products product)
         {
             InitializeComponent();
+
+            Product = product;
+            if (product == null)
+            {
+                Product = new Products();
+                edited = false;
+            }
+            BindingContext = Product;
+        }
+
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
+
+            if (edited == false)
+            {
+                await helper.AddProduct(productNameEntry.Text,
+                    priceEntry.Text,
+                    productDateDatePicker.Date.ToString(),
+                    statusPicker.SelectedItem.ToString());
+            }
+            if (edited == true)
+            {
+                await helper.UpdateProduct(Product.id,
+                    productNameEntry.Text,
+                    priceEntry.Text,
+                    productDateDatePicker.Date.ToString(),
+                    statusPicker.SelectedItem.ToString());
+
+            }
         }
     }
 }

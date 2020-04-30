@@ -5,11 +5,29 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="FreshFishMobile.Pages.SpecificProductPage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+    <StackLayout>
+        <Entry
+            Placeholder="Product Name"
+            x:Name="productNameEntry"
+            Text="{Binding Path=productname}" />
+        <Entry
+            Placeholder="Price"
+            x:Name="priceEntry"
+            Text="{Binding Path=price}" />
+        <DatePicker
+            Format="D"
+            Date="{Binding Path=date}"
+            x:Name="productDateDatePicker" />
+        <Picker
+            SelectedItem="{Binding Path=status}"
+            x:Name="statusPicker">
+            <Picker.Items>
+                <x:String>Yes</x:String>
+                <x:String>No</x:String>
+            </Picker.Items>
+        </Picker>
+        <Button
+            Text="Save"
+            Clicked="Button_Clicked" />
+    </StackLayout>
 </ContentPage>

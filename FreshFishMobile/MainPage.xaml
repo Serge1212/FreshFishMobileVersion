@@ -5,6 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:local="clr-namespace:FreshFishMobile.Pages"
              mc:Ignorable="d"
+             Title="FreshFish"
              x:Class="FreshFishMobile.MainPage">
     <local:ProductsPage></local:ProductsPage>
     <local:WorkersPage></local:WorkersPage>

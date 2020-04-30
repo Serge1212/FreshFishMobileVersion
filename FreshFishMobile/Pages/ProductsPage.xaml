@@ -4,7 +4,24 @@
              x:Class="FreshFishMobile.Pages.ProductsPage"
              Title="Products"
              IconImageSource="ic_fish.png">
-    <ListView
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            IconImageSource="baseline_search_white_18.png"
+            Clicked="ToolbarItem_Clicked_1"
+            Priority="1" />
+        <ToolbarItem
+            IconImageSource="baseline_add_white_18.png"
+            Clicked="ToolbarItem_Clicked"
+             />
+    </ContentPage.ToolbarItems>
+    <StackLayout
+        BackgroundColor="#FFD8F1EA"
+        Orientation="Vertical">
+        <SearchBar
+            x:Name="productsSearchBar"
+            IsVisible="false"
+            Placeholder="Search products..." />
+        <ListView
         x:Name="productsListView"
         ItemSelected="productsListView_ItemSelected"
         HasUnevenRows="True">
@@ -12,10 +29,11 @@
             <DataTemplate>
                 <ViewCell>
                     <ViewCell.View>
-                        <StackLayout>
+                        <StackLayout Spacing="4">
                             <Label
                                 Text="{Binding productname}"
-                                FontSize="18" />
+                                FontSize="18"
+                                FontAttributes="Bold"/>
                             <Label
                                 Text="{Binding price}" />
                             <Label
@@ -26,4 +44,5 @@
             </DataTemplate>
         </ListView.ItemTemplate>
     </ListView>
+    </StackLayout>
 </ContentPage>
