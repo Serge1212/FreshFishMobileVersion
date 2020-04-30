@@ -8,4 +8,5 @@
              x:Class="FreshFishMobile.MainPage">
     <local:ProductsPage></local:ProductsPage>
     <local:WorkersPage></local:WorkersPage>
+    <local:IncomePage></local:IncomePage>
 </TabbedPage>

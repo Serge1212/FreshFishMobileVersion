@@ -4,5 +4,26 @@
              x:Class="FreshFishMobile.Pages.ProductsPage"
              Title="Products"
              IconImageSource="ic_fish.png">
-    
+    <ListView
+        x:Name="productsListView"
+        ItemSelected="productsListView_ItemSelected"
+        HasUnevenRows="True">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <ViewCell.View>
+                        <StackLayout>
+                            <Label
+                                Text="{Binding productname}"
+                                FontSize="18" />
+                            <Label
+                                Text="{Binding price}" />
+                            <Label
+                                Text="{Binding date}" />
+                        </StackLayout>
+                    </ViewCell.View>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
 </ContentPage>
