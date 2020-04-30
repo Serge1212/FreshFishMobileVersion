@@ -18,6 +18,7 @@
         BackgroundColor="#FFD8F1EA"
         Orientation="Vertical">
         <SearchBar
+            TextChanged="productsSearchBar_TextChanged"
             x:Name="productsSearchBar"
             IsVisible="false"
             Placeholder="Search products..." />

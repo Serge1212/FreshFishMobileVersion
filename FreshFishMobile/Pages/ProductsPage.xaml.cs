@@ -3,6 +3,7 @@ using FreshFishMobile.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using Xamarin.Forms;
 
 namespace FreshFishMobile.Pages
@@ -22,12 +23,17 @@ namespace FreshFishMobile.Pages
             base.OnAppearing();
             if(executed == true)
             {
-                ProductsCollection = client
-                 .Child("freshfish")
-                 .AsObservable<Products>().AsObservableCollection();
+                GetProducts();
                 executed = false;
             }
             productsListView.ItemsSource = ProductsCollection;
+        }
+
+        void GetProducts()
+        {
+            ProductsCollection = client
+                .Child("freshfish")
+                .AsObservable<Products>().AsObservableCollection();
         }
         private async void productsListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
@@ -48,6 +54,20 @@ namespace FreshFishMobile.Pages
             {
                 productsSearchBar.IsVisible = false;
             }
+        }
+
+        private void productsSearchBar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (productsSearchBar.Text != null)
+            {
+                var searchResult = (from fish in ProductsCollection
+                                    where fish.productname.ToLower().Contains(productsSearchBar.Text.ToLower()) ||
+                                    fish.price.ToLower().Contains(productsSearchBar.Text.ToLower()) ||
+                                    fish.date.ToLower().Contains(productsSearchBar.Text.ToLower()) ||
+                                    fish.status.ToLower().Contains(productsSearchBar.Text.ToLower())
+                                    select fish).ToList();
+                productsListView.ItemsSource = searchResult;
+            } 
         }
     }
 }
