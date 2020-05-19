@@ -8,6 +8,6 @@
              Title="FreshFish"
              x:Class="FreshFishMobile.MainPage">
     <local:ProductsPage></local:ProductsPage>
-    <local:WorkersPage></local:WorkersPage>
+    <local:EmployeePage></local:EmployeePage>
     <local:IncomePage></local:IncomePage>
 </TabbedPage>

@@ -51,5 +51,13 @@ namespace FreshFishMobile.Pages
 
             }
         }
+
+        void packerPicker_SelectedIndexChanged(System.Object sender, System.EventArgs e)
+        {
+        }
+
+        void driverPicker_SelectedIndexChanged(System.Object sender, System.EventArgs e)
+        {
+        }
     }
 }

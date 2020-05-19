@@ -26,6 +26,16 @@
                 <x:String>No</x:String>
             </Picker.Items>
         </Picker>
+        <Picker
+            SelectedItem="{Binding Path=packer}"
+            SelectedIndexChanged="packerPicker_SelectedIndexChanged"
+            x:Name="packerPicker"
+            />
+        <Picker
+            SelectedItem="{Binding Path=driver}"
+            SelectedIndexChanged="driverPicker_SelectedIndexChanged"
+            x:Name="driverPicker"
+            />
         <Button
             Text="Save"
             Clicked="Button_Clicked" />

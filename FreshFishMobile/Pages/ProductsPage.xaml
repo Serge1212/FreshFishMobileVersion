@@ -30,7 +30,7 @@
             <DataTemplate>
                 <ViewCell>
                     <ViewCell.View>
-                        <StackLayout Spacing="4">
+                        <StackLayout Padding="7">
                             <Label
                                 Text="{Binding productname}"
                                 FontSize="18"
