@@ -1,42 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="FreshFishMobile.Pages.SpecificWorkerPage"
+             x:Class="FreshFishMobile.Pages.WorkersPage"
              Title="Workers"
     IconImageSource="baseline_people_black_18.png">
-    <StackLayout Orientation="Vertical">
-    <Entry Placeholder="Name"
-           Text="{Binding Path=name}"
-           x:Name="workerNameEntry"/>
-
-    <Entry Placeholder="Surname"
-           Text="{Binding Path=surname}"
-           x:Name="workerSurnameEntry"/>
-
-    <Entry Placeholder="Patronymic"
-           Text="{Binding Path=patronymic}"
-           x:Name="workerPatronymicEntry"/>
-
-    <Entry Placeholder="Position"
-           Text="{Binding Path=position}"
-           x:Name="workerPositionEntry"/>
-
-    <Entry Placeholder="Salary"
-           Text="{Binding Path=salary}"
-           x:Name="workerSalaryEntry"/>
-
-    <Entry Placeholder="Phone number"
-           Text="{Binding Path=phonenumber}"
-           x:Name="workerPhoneNumberEntry"/>
-
-    <Entry Placeholder="Address"
-           Text="{Binding Path=address}"
-           x:Name="workerAddressEntry"/>
-
-    <Entry Placeholder="About"
-           Text="{Binding Path=additioninfo}"
-           x:Name="workerAdditionalInfoEntry"/>
-
-        </StackLayout>
-
+    
 </ContentPage>
