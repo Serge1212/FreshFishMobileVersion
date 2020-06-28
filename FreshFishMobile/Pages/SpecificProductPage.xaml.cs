@@ -24,6 +24,7 @@ namespace FreshFishMobile.Pages
             Product = product;
             if (product == null)
             {
+                DeleteProductButton.IsVisible = false;
                 Product = new Products();
                 edited = false;
             }
@@ -50,6 +51,12 @@ namespace FreshFishMobile.Pages
                     statusPicker.SelectedItem.ToString());
 
             }
+        }
+
+        async void DeleteProductButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
+            await helper.DeleteProduct(Product.id);
         }
     }
 }

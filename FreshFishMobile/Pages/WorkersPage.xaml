@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FreshFishMobile.Pages.WorkersPage"
              Title="Workers"
-    IconImageSource="baseline_people_black_18.png">
+    IconImageSource="WorkersIcon.png">
     <ContentPage.ToolbarItems>
         <ToolbarItem
             IconImageSource="baseline_search_white_18.png"

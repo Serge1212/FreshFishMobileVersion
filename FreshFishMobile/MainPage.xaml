@@ -6,7 +6,10 @@
              xmlns:local="clr-namespace:FreshFishMobile.Pages"
              mc:Ignorable="d"
              Title="FreshFish"
-             x:Class="FreshFishMobile.MainPage">
+             x:Class="FreshFishMobile.MainPage"
+    BarBackgroundColor="#FF7EC3E9"
+            
+     >
     <local:ProductsPage></local:ProductsPage>
     <local:WorkersPage></local:WorkersPage>
     <local:IncomePage></local:IncomePage>

@@ -1,6 +1,9 @@
-﻿using System;
+﻿using Firebase.Database;
+using FreshFishMobile.Models;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using Xamarin.Forms;
 
 namespace FreshFishMobile.Pages
@@ -10,7 +13,7 @@ namespace FreshFishMobile.Pages
         static bool executed = true;
         static ObservableCollection<Workers> WorkersCollection = new ObservableCollection<Workers>();
         static FirebaseClient client = new FirebaseClient("https://freshfish-bf927.firebaseio.com");
-        public EmployeePage()
+        public WorkersPage()
         {
             InitializeComponent();
             if (executed)
@@ -45,8 +48,10 @@ namespace FreshFishMobile.Pages
             }
         }
 
-        void workersListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        async void workersListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
+            var specificWorker = workersListView.SelectedItem as Workers;
+            await Navigation.PushAsync(new SpecificWorkerPage(specificWorker));
         }
 
         void ToolbarItem_Clicked(object sender, EventArgs e)

@@ -31,5 +31,10 @@
         <Button
             Text="Save"
             Clicked="SaveProduct" />
+        <Button
+            x:Name="DeleteProductButton"
+            Text="Delete"
+            TextColor="Red"
+            Clicked="DeleteProductButton_Clicked" />
     </StackLayout>
 </ContentPage>
