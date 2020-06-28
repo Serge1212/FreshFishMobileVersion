@@ -172,4 +172,13 @@
   <ItemGroup>
     <BundleResource Include="Resources\baseline_people_black_48.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\IncomePageIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ProductsPageIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\WorkersIcon.png" />
+  </ItemGroup>
 </Project>

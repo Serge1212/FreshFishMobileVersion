@@ -27,6 +27,7 @@ namespace FreshFishMobile.Pages
                 executed = false;
             }
             productsListView.ItemsSource = ProductsCollection;
+            
         }
 
         void GetProducts()
@@ -38,12 +39,18 @@ namespace FreshFishMobile.Pages
         private async void productsListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             Products selectedProduct = e.SelectedItem as Products;
-            await Navigation.PushAsync(new SpecificProductPage(selectedProduct));
+            if(e.SelectedItem != null)
+            {
+                productsListView.SelectedItem = null;
+                await Navigation.PushAsync(new SpecificProductPage(selectedProduct));
+            }
+            
+            
         }
 
         private async void ToolbarItem_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new SpecificProductPage());
+            await Navigation.PushAsync(new SpecificProductPage(null));
         }
 
         private void ToolbarItem_Clicked_1(object sender, EventArgs e)

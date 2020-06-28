@@ -51,7 +51,11 @@ namespace FreshFishMobile.Pages
         async void workersListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var specificWorker = workersListView.SelectedItem as Workers;
-            await Navigation.PushAsync(new SpecificWorkerPage(specificWorker));
+            if (e.SelectedItem != null)
+            {
+                workersListView.SelectedItem = null;
+                await Navigation.PushAsync(new SpecificWorkerPage(specificWorker));
+            }
         }
 
         void ToolbarItem_Clicked(object sender, EventArgs e)

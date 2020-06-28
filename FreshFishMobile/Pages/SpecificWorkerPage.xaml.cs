@@ -18,7 +18,7 @@ namespace FreshFishMobile.Pages
         bool edited = true;
         public Workers Worker { get; set; }
 
-        public SpecificWorkerPage(Workers worker = null)
+        public SpecificWorkerPage(Workers worker)
         {
             InitializeComponent();
             Worker = worker;

@@ -17,7 +17,7 @@ namespace FreshFishMobile.Pages
         ProductsHelper helper = new ProductsHelper();
         bool edited = true;
         public Products Product { get; set; }
-        public SpecificProductPage(Products product = null)
+        public SpecificProductPage(Products product)
         {
             InitializeComponent();
 
