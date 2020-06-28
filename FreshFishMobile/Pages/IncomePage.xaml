@@ -8,5 +8,31 @@
     x:Class="FreshFishMobile.Pages.IncomePage"
     Title="Income"
     IconImageSource="IncomePageIcon.png">
-    
+    <StackLayout
+        Orientation="Vertical"
+        HorizontalOptions="Center"
+        VerticalOptions="Center">
+        <Label
+            Text="Income"
+            FontSize="14"
+            FontAttributes="Bold"
+            TextColor="Black" />
+        <Label
+            x:Name="IncomeValue"
+            Text="0.0" />
+        <StackLayout  Spacing="4" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand" Orientation="Vertical">
+            <Label
+                x:Name="dollarCurrencyValue"
+                Text="dol: " />
+            <Label
+                x:Name="euroCurrencyValue"
+                Text="euro: " />
+            <Label
+                x:Name="rubleCurrencyValue"
+                Text="rub: " />
+            <Label
+                x:Name="btcCurrencyValue"
+                Text="btc: " />
+        </StackLayout>
+    </StackLayout>
 </ContentPage>
