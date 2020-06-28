@@ -4,5 +4,46 @@
              x:Class="FreshFishMobile.Pages.WorkersPage"
              Title="Workers"
     IconImageSource="baseline_people_black_18.png">
-    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            IconImageSource="baseline_search_white_18.png"
+            Clicked="ToolbarItem_Clicked"
+            Priority="1" />
+        <ToolbarItem
+            IconImageSource="baseline_add_white_18.png"
+            Clicked="AddWorkerClick" />
+    </ContentPage.ToolbarItems>
+    <StackLayout
+        BackgroundColor="#FFD8F1EA"
+        Orientation="Vertical">
+        <SearchBar
+            TextChanged="workersSearchBar_TextChanged"
+            x:Name="workersSearchBar"
+            IsVisible="false"
+            Placeholder="Search workers..." />
+        <ListView
+            x:Name="workersListView"
+            ItemSelected="workersListView_ItemSelected"
+            HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <StackLayout
+                                Padding="7">
+                                <Label
+                                    Text="{Binding surname}"
+                                    FontSize="18"
+                                    FontAttributes="Bold" />
+                                <Label
+                                    Text="{Binding name}" />
+                                <Label
+                                    Text="{Binding position}" />
+                            </StackLayout>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
 </ContentPage>

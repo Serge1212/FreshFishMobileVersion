@@ -17,7 +17,7 @@ namespace FreshFishMobile.Pages
         ProductsHelper helper = new ProductsHelper();
         bool edited = true;
         public Products Product { get; set; }
-        public SpecificProductPage(Products product)
+        public SpecificProductPage(Products product = null)
         {
             InitializeComponent();
 
@@ -30,7 +30,7 @@ namespace FreshFishMobile.Pages
             BindingContext = Product;
         }
 
-        private async void Button_Clicked(object sender, EventArgs e)
+        private async void SaveProduct(object sender, EventArgs e)
         {
             await Navigation.PopAsync();
 

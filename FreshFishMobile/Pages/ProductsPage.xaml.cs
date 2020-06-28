@@ -43,7 +43,7 @@ namespace FreshFishMobile.Pages
 
         private async void ToolbarItem_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new SpecificProductPage(null));
+            await Navigation.PushAsync(new SpecificProductPage());
         }
 
         private void ToolbarItem_Clicked_1(object sender, EventArgs e)

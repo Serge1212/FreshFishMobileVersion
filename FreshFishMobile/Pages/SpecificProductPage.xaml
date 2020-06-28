@@ -19,8 +19,10 @@
             Date="{Binding Path=date}"
             x:Name="productDateDatePicker" />
         <Picker
+            Title="Sold"
             SelectedItem="{Binding Path=status}"
-            x:Name="statusPicker">
+            x:Name="statusPicker"
+            >
             <Picker.Items>
                 <x:String>Yes</x:String>
                 <x:String>No</x:String>
@@ -28,6 +30,6 @@
         </Picker>
         <Button
             Text="Save"
-            Clicked="Button_Clicked" />
+            Clicked="SaveProduct" />
     </StackLayout>
 </ContentPage>
