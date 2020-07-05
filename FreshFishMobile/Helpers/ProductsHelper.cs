@@ -43,7 +43,7 @@ namespace FreshFishMobile.Helpers
             return sum;
         }
 
-        public async Task AddProduct(string productName, string Price, string Date, string Status)
+        public async Task AddProduct(string productName, string Price, string Date, string Status, string Packer, string Driver)
         {
             //string randomID = GetRandomId();
             await client
@@ -54,7 +54,9 @@ namespace FreshFishMobile.Helpers
                     productname = productName,
                     price = Price,
                     date = Date,
-                    status = Status
+                    status = Status,
+                    packer = Packer,
+                    driver = Driver
                 });
         }
 
@@ -62,7 +64,9 @@ namespace FreshFishMobile.Helpers
             string productName,
             string Price,
             string Date,
-            string Status)
+            string Status,
+            string Packer,
+            string Driver)
         {
             var toUpdateProduct = (await client
                 .Child("freshfish")
@@ -71,7 +75,7 @@ namespace FreshFishMobile.Helpers
             await client
                 .Child("freshfish")
                 .Child(toUpdateProduct.Key)
-                .PutAsync(new Products { id = ID, productname = productName, price = Price, date = Date, status = Status });
+                .PutAsync(new Products { id = ID, productname = productName, price = Price, date = Date, status = Status, packer = Packer, driver = Driver });
         }
 
         public async Task DeleteProduct(string ID)

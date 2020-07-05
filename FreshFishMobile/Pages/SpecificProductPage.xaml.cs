@@ -14,13 +14,18 @@ namespace FreshFishMobile.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SpecificProductPage : ContentPage
     {
-        ProductsHelper helper = new ProductsHelper();
         bool edited = true;
+        List<Workers> packers = new List<Workers>();
+        List<Workers> drivers = new List<Workers>();
+        string packerId;
+        string driverId;
+        ProductsHelper productsHelper = new ProductsHelper();
+        WorkersHelper workersHelper = new WorkersHelper();
         public Products Product { get; set; }
         public SpecificProductPage(Products product)
         {
             InitializeComponent();
-
+            UploadPackersAndDrivers();
             Product = product;
             if (product == null)
             {
@@ -28,7 +33,13 @@ namespace FreshFishMobile.Pages
                 Product = new Products();
                 edited = false;
             }
+            else
+            {
+                packerId = Product.packer;
+                driverId = Product.driver;
+            }
             BindingContext = Product;
+            FillPackerAndDriverComboBoxes();
         }
 
         private async void SaveProduct(object sender, EventArgs e)
@@ -37,18 +48,22 @@ namespace FreshFishMobile.Pages
 
             if (edited == false)
             {
-                await helper.AddProduct(productNameEntry.Text,
+                await productsHelper.AddProduct(productNameEntry.Text,
                     priceEntry.Text,
-                    productDateDatePicker.Date.ToString(),
-                    statusPicker.SelectedItem.ToString());
+                    productDateDatePicker.Date.ToString("dd/MM/yyyy"),
+                    statusPicker.SelectedItem.ToString(),
+                    packerId,
+                    driverId);
             }
             if (edited == true)
             {
-                await helper.UpdateProduct(Product.id,
+                await productsHelper.UpdateProduct(Product.id,
                     productNameEntry.Text,
                     priceEntry.Text,
                     productDateDatePicker.Date.ToString(),
-                    statusPicker.SelectedItem.ToString());
+                    statusPicker.SelectedItem.ToString(),
+                    packerId,
+                    driverId);
 
             }
         }
@@ -56,7 +71,51 @@ namespace FreshFishMobile.Pages
         async void DeleteProductButton_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopAsync();
-            await helper.DeleteProduct(Product.id);
+            await productsHelper.DeleteProduct(Product.id);
+        }
+
+        async void UploadPackersAndDrivers()
+        {
+            var workers = await workersHelper.GetAllWorkersAsync();
+
+            packers = (from p in workers
+                       where p.position.ToLower() == "packer"
+                       select p).ToList();
+            PackerPicker.ItemsSource = packers;
+
+            drivers = (from p in workers
+                       where p.position.ToLower() == "driver"
+                       select p).ToList();
+            DriverPicker.ItemsSource = drivers;
+        }
+
+        async void FillPackerAndDriverComboBoxes()
+        {
+            if (edited == true)
+            {
+                Workers specificDriver = await workersHelper.GetWorker(Product.driver);
+                Workers specificPacker = await workersHelper.GetWorker(Product.packer);
+                if (specificPacker != null && specificDriver != null)
+                {
+                    string driverNameSurname = specificDriver.name + " " + specificDriver.surname;
+                    string packerNameSurname = specificPacker.name + " " + specificPacker.surname;
+
+                    DriverPicker.Title = driverNameSurname;
+                    PackerPicker.Title = packerNameSurname;
+                }
+            }
+        }
+
+        private void PackerPicker_SelectedIndexChanged(object sender, EventArgs e)
+        {
+                Workers selectedPacker = PackerPicker.SelectedItem as Workers;
+                packerId = selectedPacker.w_id;  
+        }
+
+        private void DriverPicker_SelectedIndexChanged(object sender, EventArgs e)
+        {
+                Workers selectedDriver = DriverPicker.SelectedItem as Workers;
+                driverId = selectedDriver.w_id;
         }
     }
 }

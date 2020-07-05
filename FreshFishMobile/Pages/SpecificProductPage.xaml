@@ -4,7 +4,8 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="FreshFishMobile.Pages.SpecificProductPage">
+             x:Class="FreshFishMobile.Pages.SpecificProductPage"
+             Visual="Material">
     <StackLayout>
         <Entry
             Placeholder="Product Name"
@@ -15,8 +16,7 @@
             x:Name="priceEntry"
             Text="{Binding Path=price}" />
         <DatePicker
-            Format="D"
-            Date="{Binding Path=date}"
+            Date="{Binding Path=date, StringFormat='{0:d}'}"
             x:Name="productDateDatePicker" />
         <Picker
             Title="Sold"
@@ -28,6 +28,12 @@
                 <x:String>No</x:String>
             </Picker.Items>
         </Picker>
+        <Picker
+            x:Name="PackerPicker"
+            SelectedIndexChanged="PackerPicker_SelectedIndexChanged"/>
+        <Picker
+            x:Name="DriverPicker"
+            SelectedIndexChanged="DriverPicker_SelectedIndexChanged"/>
         <Button
             Text="Save"
             Clicked="SaveProduct" />

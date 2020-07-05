@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="FreshFishMobile.Models.Products">
+    <Position X="6" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQBAAAAAAAAAAAAAAgAAACAAAAAAAAAAAAAIQAAAgA=</HashCode>
+      <FileName>Models\Products.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FreshFishMobile.Models.Workers">
+    <Position X="4.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAgAAAEAAAEIAAAAEIEAAAgAAAAAAABAAA=</HashCode>
+      <FileName>Models\Workers.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FreshFishMobile.Helpers.ProductsHelper">
+    <Position X="4.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAEAQAiAAAAAAAAAAIAABgAAAAA=</HashCode>
+      <FileName>Helpers\ProductsHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FreshFishMobile.Helpers.WorkersHelper">
+    <Position X="6" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EEAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAIABBACAAAA=</HashCode>
+      <FileName>Helpers\WorkersHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

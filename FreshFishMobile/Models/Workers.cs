@@ -15,5 +15,10 @@ namespace FreshFishMobile.Models
         public string phonenumber { get; set; }
         public string address { get; set; }
         public string additioninfo { get; set; }
+
+        public override string ToString()
+        {
+            return name + " " + surname;
+        }
     }
 }

@@ -11,5 +11,7 @@ namespace FreshFishMobile.Models
         public string price { get; set; }
         public string date { get; set; }
         public string status { get; set; }
+        public string packer { get; set; }
+        public string driver { get; set; }
     }
 }
